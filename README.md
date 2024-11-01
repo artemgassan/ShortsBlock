@@ -1,5 +1,19 @@
-**ShortsBlock** a simple browser extension that allows you to hide short video shorts on a YouTube page `https://www.youtube.com/`. 
+**ShortsBlock** a simple browser extension that allows you to hide short video Shorts on a YouTube page `https://www.youtube.com/`. 
 
+<details>
+  <summary>Which blocks on the YouTube page will be hidden?</summary>
+
+1. The Shorts section on the Youtube homepage
+
+2. The Shorts section in the sidebar
+![The Shorts section in the sidebar](docs/actions/1.png)
+  
+3. The Shorts section in the search results
+![The Shorts section in the search results](docs/actions/2.png)
+
+4. The Shorts section next to the video being played
+![The Shorts section next to the video being played](docs/actions/3.png)
+</details>
 
 ### Quick start
 
