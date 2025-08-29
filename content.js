@@ -1,6 +1,6 @@
 function hideShorts() {
   const shortsForMainPage = document.querySelectorAll('ytd-rich-section-renderer');
-  const shortsSectionsForSearch = document.querySelectorAll('ytd-reel-shelf-renderer');
+  const shortsSectionsForSearch = document.querySelectorAll('grid-shelf-view-model');
   const buttonOpenShorts = document.querySelector('a[title*="Shorts"]')
 
   shortsForMainPage.forEach(section => {
