@@ -11,22 +11,61 @@
 // @run-at       document-idle
 // ==/UserScript==
 
+const KEYWORD = 'shorts';
+
+const SELECTORS = {
+  chips: [
+    'yt-chip-cloud-chip-renderer',
+    'ytd-chip-cloud-chip-renderer',
+    'button.ytChipShapeButtonReset',
+    'chip-shape'
+  ],
+  links: [
+    'a[title]',
+    'a[aria-label]'
+  ],
+  tabs: [
+    '[role="tab"]'
+  ],
+  videos: [
+    'ytd-video-renderer'
+  ],
+  sections: [
+    'ytd-rich-section-renderer',
+    'grid-shelf-view-model',
+    'ytd-reel-shelf-renderer'
+  ]
+};
+
+const CANDIDATE_SELECTORS = [
+  ...SELECTORS.chips,
+  ...SELECTORS.links,
+  ...SELECTORS.tabs,
+  ...SELECTORS.videos
+].join(',');
+
+const CONTAINER_SELECTORS = [
+  ...SELECTORS.chips,
+  ...SELECTORS.tabs
+].join(',');
+
+const SECTION_SELECTORS = SELECTORS.sections.join(',');
+
 function hideShorts() {
-  const selectors = {
-    shortsForMainPage: 'ytd-rich-section-renderer',
-    shortsSectionsForSearch: 'grid-shelf-view-model',
-    shortsSectionsForHistory: 'ytd-reel-shelf-renderer',
-  };
+  const candidates = document.querySelectorAll(CANDIDATE_SELECTORS);
+  for (const node of candidates) {
+    const text = (node.textContent || '').trim().toLowerCase();
+    if (text.includes(KEYWORD)) {
+      const chipContainer = node.closest(CONTAINER_SELECTORS) || node;
+      if (chipContainer) {
+        chipContainer.style.display = 'none';
+      }
+    }
+  }
 
-  Object.values(selectors).forEach(selector => {
-    document.querySelectorAll(selector).forEach(element => {
-      element.style.display = 'none';
-    });
-  });
-
-  const shortsNavButton = document.querySelector('a[title*="Shorts"]');
-  if (shortsNavButton) {
-    shortsNavButton.style.display = 'none';
+  const sections = document.querySelectorAll(SECTION_SELECTORS);
+  for (const element of sections) {
+    element.style.display = 'none';
   }
 }
 
