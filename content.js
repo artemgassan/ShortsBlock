@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ShortsBlock
-// @version      1.1.1
+// @version      1.1.2
 // @description  Simple browser extension that allows you to hide Shorts on a YouTube
 // @author       artemgassan
 // @license      MIT
