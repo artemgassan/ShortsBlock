@@ -14,6 +14,7 @@
 function hideShorts() {
   const shortsForMainPage = document.querySelectorAll('ytd-rich-section-renderer');
   const shortsSectionsForSearch = document.querySelectorAll('grid-shelf-view-model');
+  const shortsSectionsForHistory = document.querySelectorAll('ytd-reel-shelf-renderer');
   const buttonOpenShorts = document.querySelector('a[title*="Shorts"]')
 
   shortsForMainPage.forEach(section => {
@@ -23,6 +24,12 @@ function hideShorts() {
   });
 
   shortsSectionsForSearch.forEach(section => {
+    if (section) {
+      section.style.display = 'none';
+    }
+  });
+
+  shortsSectionsForHistory.forEach(section => {
     if (section) {
       section.style.display = 'none';
     }
