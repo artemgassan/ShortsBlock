@@ -12,31 +12,21 @@
 // ==/UserScript==
 
 function hideShorts() {
-  const shortsForMainPage = document.querySelectorAll('ytd-rich-section-renderer');
-  const shortsSectionsForSearch = document.querySelectorAll('grid-shelf-view-model');
-  const shortsSectionsForHistory = document.querySelectorAll('ytd-reel-shelf-renderer');
-  const buttonOpenShorts = document.querySelector('a[title*="Shorts"]')
+  const selectors = {
+    shortsForMainPage: 'ytd-rich-section-renderer',
+    shortsSectionsForSearch: 'grid-shelf-view-model',
+    shortsSectionsForHistory: 'ytd-reel-shelf-renderer',
+  };
 
-  shortsForMainPage.forEach(section => {
-    if (section) {
-      section.style.display = 'none';
-    }
+  Object.values(selectors).forEach(selector => {
+    document.querySelectorAll(selector).forEach(element => {
+      element.style.display = 'none';
+    });
   });
 
-  shortsSectionsForSearch.forEach(section => {
-    if (section) {
-      section.style.display = 'none';
-    }
-  });
-
-  shortsSectionsForHistory.forEach(section => {
-    if (section) {
-      section.style.display = 'none';
-    }
-  });
-
-  if (buttonOpenShorts) {
-    buttonOpenShorts.style.display = 'none';
+  const shortsNavButton = document.querySelector('a[title*="Shorts"]');
+  if (shortsNavButton) {
+    shortsNavButton.style.display = 'none';
   }
 }
 
