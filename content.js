@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         ShortsBlock
-// @version      1.1.1
+// @version      1.1.2
 // @description  Simple browser extension that allows you to hide Shorts on a YouTube
 // @author       artemgassan
 // @license      MIT
@@ -11,25 +11,61 @@
 // @run-at       document-idle
 // ==/UserScript==
 
+const KEYWORD = 'shorts';
+
+const SELECTORS = {
+  chips: [
+    'yt-chip-cloud-chip-renderer',
+    'ytd-chip-cloud-chip-renderer',
+    'button.ytChipShapeButtonReset',
+    'chip-shape'
+  ],
+  links: [
+    'a[title]',
+    'a[aria-label]'
+  ],
+  tabs: [
+    '[role="tab"]'
+  ],
+  videos: [
+    'ytd-video-renderer'
+  ],
+  sections: [
+    'ytd-rich-section-renderer',
+    'grid-shelf-view-model',
+    'ytd-reel-shelf-renderer'
+  ]
+};
+
+const CANDIDATE_SELECTORS = [
+  ...SELECTORS.chips,
+  ...SELECTORS.links,
+  ...SELECTORS.tabs,
+  ...SELECTORS.videos
+].join(',');
+
+const CONTAINER_SELECTORS = [
+  ...SELECTORS.chips,
+  ...SELECTORS.tabs
+].join(',');
+
+const SECTION_SELECTORS = SELECTORS.sections.join(',');
+
 function hideShorts() {
-  const shortsForMainPage = document.querySelectorAll('ytd-rich-section-renderer');
-  const shortsSectionsForSearch = document.querySelectorAll('grid-shelf-view-model');
-  const buttonOpenShorts = document.querySelector('a[title*="Shorts"]')
-
-  shortsForMainPage.forEach(section => {
-    if (section) {
-      section.style.display = 'none';
+  const candidates = document.querySelectorAll(CANDIDATE_SELECTORS);
+  for (const node of candidates) {
+    const text = (node.textContent || '').trim().toLowerCase();
+    if (text.includes(KEYWORD)) {
+      const chipContainer = node.closest(CONTAINER_SELECTORS) || node;
+      if (chipContainer) {
+        chipContainer.style.display = 'none';
+      }
     }
-  });
+  }
 
-  shortsSectionsForSearch.forEach(section => {
-    if (section) {
-      section.style.display = 'none';
-    }
-  });
-
-  if (buttonOpenShorts) {
-    buttonOpenShorts.style.display = 'none';
+  const sections = document.querySelectorAll(SECTION_SELECTORS);
+  for (const element of sections) {
+    element.style.display = 'none';
   }
 }
 
