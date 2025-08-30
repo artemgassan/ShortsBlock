@@ -33,7 +33,7 @@ function hideShorts() {
   }
 }
 
-window.addEventListener('load', hideShorts);
+hideShorts();
 
 const observer = new MutationObserver(hideShorts);
 observer.observe(document.body, { childList: true, subtree: true });
