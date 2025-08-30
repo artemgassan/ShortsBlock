@@ -1,3 +1,16 @@
+// ==UserScript==
+// @name         ShortsBlock
+// @version      1.1.1
+// @description  Simple browser extension that allows you to hide Shorts on a YouTube
+// @author       artemgassan
+// @license      MIT
+// @match        *://*.youtube.com/*
+// @match        *://*.youtube-nocookie.com/*
+// @match        *://*.youtubekids.com/*
+// @grant        none
+// @run-at       document-idle
+// ==/UserScript==
+
 function hideShorts() {
   const shortsForMainPage = document.querySelectorAll('ytd-rich-section-renderer');
   const shortsSectionsForSearch = document.querySelectorAll('grid-shelf-view-model');
