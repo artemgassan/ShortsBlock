@@ -6,13 +6,13 @@
 1. The Shorts section on the Youtube homepage
 
 2. The Shorts section in the sidebar
-![The Shorts section in the sidebar](docs/actions/1.png)
+![The Shorts section in the sidebar](assets/docs/1.png)
   
 3. The Shorts section in the search results
-![The Shorts section in the search results](docs/actions/2.png)
+![The Shorts section in the search results](assets/docs/2.png)
 
 4. The Shorts section next to the video being played
-![The Shorts section next to the video being played](docs/actions/3.png)
+![The Shorts section next to the video being played](assets/docs/3.png)
 </details>
 
 ### Quick start
