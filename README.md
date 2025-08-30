@@ -9,7 +9,7 @@
 > If you use Tampermonkey 5.2.0+, don't forget to [enable «Developer Mode»](https://www.tampermonkey.net/faq.php#Q209)
 
 1. Install the **[Tampermonkey](https://www.tampermonkey.net/index.php)** extension
-2. Install the **[Script](https://greasyfork.org/ru/scripts/547773-hide-youtube-shorts)**
+2. Install the **[Script](https://update.greasyfork.org/scripts/547838/ShortsBlock.user.js)**
 
 ### Manual installation
 
@@ -31,7 +31,7 @@ and enable `Developer mode`
 <details>
   <summary>Which blocks on the YouTube page will be hidden?</summary>
 
-1. The Shorts section on the Youtube homepage
+1. The Shorts section on the YouTube homepage
 
 2. The Shorts section in the sidebar
    ![The Shorts section in the sidebar](assets/docs/1.png)
