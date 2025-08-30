@@ -1,21 +1,17 @@
-**ShortsBlock** a simple browser extension that allows you to hide short video Shorts on a YouTube page `https://www.youtube.com/`. 
+**ShortsBlock** a simple browser extension that allows you to hide short video Shorts on a YouTube page `https://www.youtube.com/`.
 
-<details>
-  <summary>Which blocks on the YouTube page will be hidden?</summary>
 
-1. The Shorts section on the Youtube homepage
+## Quick start
 
-2. The Shorts section in the sidebar
-![The Shorts section in the sidebar](assets/docs/1.png)
-  
-3. The Shorts section in the search results
-![The Shorts section in the search results](assets/docs/2.png)
+### Recommended installation method
 
-4. The Shorts section next to the video being played
-![The Shorts section next to the video being played](assets/docs/3.png)
-</details>
+> [!WARNING]
+> If you use Tampermonkey 5.2.0+, don't forget to [enable «Developer Mode»](https://www.tampermonkey.net/faq.php#Q209)
 
-### Quick start
+1. Install the **[Tampermonkey](https://www.tampermonkey.net/index.php)** extension
+2. Install the **[Script](https://greasyfork.org/ru/scripts/547773-hide-youtube-shorts)**
+
+### Manual installation
 
 1. Download the ZIP of this repository and unpack it locally
 
@@ -28,3 +24,21 @@
 and enable `Developer mode`
 
 3. Specify the local path to the downloaded extension by selecting `Load unpacked`
+
+
+## FAQ
+
+<details>
+  <summary>Which blocks on the YouTube page will be hidden?</summary>
+
+1. The Shorts section on the Youtube homepage
+
+2. The Shorts section in the sidebar
+   ![The Shorts section in the sidebar](assets/docs/1.png)
+
+3. The Shorts section in the search results
+   ![The Shorts section in the search results](assets/docs/2.png)
+
+4. The Shorts section next to the video being played
+   ![The Shorts section next to the video being played](assets/docs/3.png)
+</details>
